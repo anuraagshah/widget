@@ -6,18 +6,26 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnItemSelectedListener
-{
+{	
+	Spinner classSpin;
 
-	
 	protected void onCreate(Bundle savedInstanceState) 
 	{
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		classSpin = (Spinner)findViewById(R.id.spinner1);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.classes, android.R.layout.simple_spinner_item);
+		classSpin.setAdapter(adapter);
+		classSpin.setOnItemSelectedListener(this);
+	
 	}
 
 	public void onRadioButtonClicked(View v)
@@ -80,14 +88,16 @@ public class MainActivity extends Activity implements OnItemSelectedListener
 	}
 
 	@Override
-	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
-			long arg3) {
+	public void onItemSelected(AdapterView<?> parent, View v, int pos,long id) 
+	{
+		Toast.makeText(this, "The item is selected: " +parent.getItemAtPosition(pos) + "and the id is: " + id, Toast.LENGTH_SHORT).show();
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void onNothingSelected(AdapterView<?> arg0) {
+	public void onNothingSelected(AdapterView<?> arg0) 
+	{
 		// TODO Auto-generated method stub
 		
 	}

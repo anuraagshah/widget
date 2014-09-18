@@ -7,5 +7,12 @@
     <string name="maybe">Maybe</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string-array name="classes">
+        <item >CSCI 240</item>
+        <item >CSCI 241</item>
+        <item >CSCI 640</item>
+        <item >CSCI 680</item>
+        <item >CSCI 630</item>
+    </string-array>
 
 </resources>
